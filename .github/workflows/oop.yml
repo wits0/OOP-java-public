@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ "main" ]  
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -17,13 +17,20 @@ jobs:
         working-directory: ./${{ github.event.pull_request.title }}
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: '8.5'
+
+      - name: Create Gradle Wrapper
+        run: |
+          gradle wrapper --gradle-version 8.5
+          chmod +x gradlew
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-    
+
       - name: Execute Gradle build
         run: ./gradlew build
 
@@ -34,7 +41,7 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.2
         with:
-          paths: ./${{ github.event.pull_request.title }}/build/reports/jacoco/test/jacocoTestReport.xml
+          paths: ./build/reports/jacoco/test/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 80
@@ -48,7 +55,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           clean: true
-          folder: ${{ github.event.pull_request.title }}/build/docs/javadoc
+          folder: ./build/docs/javadoc
           target-folder: ${{ github.event.pull_request.title }}
 
   checkstyle:
