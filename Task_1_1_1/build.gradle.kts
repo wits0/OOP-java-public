@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id 'jacoco'
 }
 
 group = "org.example"
@@ -17,4 +18,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
