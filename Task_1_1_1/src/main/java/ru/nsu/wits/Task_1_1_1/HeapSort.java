@@ -3,7 +3,7 @@ package ru.nsu.wits.Task_1_1_1;
 /**
  * Utility class for sorting arrays.
  */
-public class Sort {
+public class HeapSort {
 
     /**
      * Sorts the given array in ascending order.
