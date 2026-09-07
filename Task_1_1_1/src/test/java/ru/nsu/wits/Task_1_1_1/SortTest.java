@@ -8,8 +8,8 @@ class SortTest {
 
     @Test
     void sort() {
-        int[] array = new int []{1,3,2};
+        int[] array = new int[]{1,3,2};
         var result = Sort.sort(array);
-        assertArrayEquals(new int []{1,2,3}, result);
+        assertArrayEquals(new int[]{1,2,3}, result);
     }
 }
