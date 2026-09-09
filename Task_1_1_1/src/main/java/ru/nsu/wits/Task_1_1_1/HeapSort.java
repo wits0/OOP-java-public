@@ -13,9 +13,6 @@ public class HeapSort {
      *               return a new sorted array
      */
     public static void sort(int[] array) {
-        if (array.length <= 1) {
-            return;
-        }
         int len = array.length;
         for (int index = len / 2 - 1; index >= 0; index--) {
             heapify(array, len, index);
