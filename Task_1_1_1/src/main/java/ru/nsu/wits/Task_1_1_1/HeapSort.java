@@ -10,10 +10,10 @@ public class HeapSort {
      * Sorts the given array with using heapsort algorithm.
      *
      * @param array the input array to be sorted
-     * return a new sorted array
+     *               return a new sorted array
      */
     public static void sort(int[] array) {
-        if (array.length <= 1 ) {
+        if (array == null || array.length <= 1) {
             return;
         }
         int len = array.length;
@@ -24,46 +24,48 @@ public class HeapSort {
             swap(array, 0, index);
             heapify(array, index, 0);
         }
-
     }
+
     /**
      * Heapify return properties of Heap, used swap and heapify (recursively)
-     * check that father > then his child's
-     * if not, we swap child who bigger than father(use swap)
-     * then heapifies the affected subtree
-     * @param array  the array we need to heapify
-     * @param index the root index of the subtree to heapify
+     * check that father > then his child's if not, we swap child who bigger
+     * than father(use swap) then heapifies the affected subtree.
+     *
+     * @param array the array we need to heapify
      * @param len the length of our array
+     * @param index the root index of the subtree to heapify
      */
-    public static void heapify(int[] array,int len,int index) {
+    public static void heapify(int[] array, int len, int index) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int biggest = index;
-        if (left<len && array[left] > array[biggest]) {
+
+        if (left < len && array[left] > array[biggest]) {
             biggest = left;
         }
         if (right < len && array[right] > array[biggest]) {
             biggest = right;
         }
         if (biggest != index) {
-            swap(array,index,biggest);
-            heapify(array,len,biggest);
+            swap(array, index, biggest);
+            heapify(array, len, biggest);
         }
     }
-    private static void swap(int[] array,int left,int right) {
+
+    private static void swap(int[] array, int left, int right) {
         int temp = array[left];
         array[left] = array[right];
         array[right] = temp;
     }
-    private static void heapUp(int[] array,int index) {
+
+    private static void heapUp(int[] array, int index) {
         if (index <= 0) {
             return;
-            //that mean that index == root -> can't go up
         }
         int parent = (index - 1) / 2;
         if (array[index] > array[parent]) {
-            swap(array,index,parent);
-            heapUp(array,parent);
+            swap(array, index, parent);
+            heapUp(array, parent);
         }
     }
 }

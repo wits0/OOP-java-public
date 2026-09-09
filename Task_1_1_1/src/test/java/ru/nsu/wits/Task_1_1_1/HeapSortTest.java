@@ -1,8 +1,9 @@
 package ru.nsu.wits.Task_1_1_1;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class HeapSortTest {
 
@@ -58,5 +59,11 @@ class HeapSortTest {
         int[] expected = {-9, -8, -5, -3, -2, -1};
         HeapSort.sort(array);
         assertArrayEquals(expected, array);
+    }
+
+    @Test
+    void testSortWithNullArray() {
+        int[] array = null;
+        assertDoesNotThrow(() -> HeapSort.sort(array));
     }
 }
