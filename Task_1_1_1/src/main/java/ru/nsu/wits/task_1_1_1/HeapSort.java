@@ -1,4 +1,4 @@
-package ru.nsu.wits.Task_1_1_1;
+package ru.nsu.wits.task_1_1_1;
 
 /**
  * Heap sort realization.
@@ -13,6 +13,9 @@ public class HeapSort {
      *               return a new sorted array
      */
     public static void sort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
         int len = array.length;
         for (int index = len / 2 - 1; index >= 0; index--) {
             heapify(array, len, index);
