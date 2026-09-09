@@ -13,7 +13,7 @@ public class HeapSort {
      *               return a new sorted array
      */
     public static void sort(int[] array) {
-        if (array == null || array.length <= 1) {
+        if (array.length <= 1) {
             return;
         }
         int len = array.length;

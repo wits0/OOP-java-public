@@ -60,10 +60,4 @@ class HeapSortTest {
         HeapSort.sort(array);
         assertArrayEquals(expected, array);
     }
-
-    @Test
-    void testSortWithNullArray() {
-        int[] array = null;
-        assertDoesNotThrow(() -> HeapSort.sort(array));
-    }
 }
