@@ -58,14 +58,4 @@ public class HeapSort {
         array[right] = temp;
     }
 
-    private static void heapUp(int[] array, int index) {
-        if (index <= 0) {
-            return;
-        }
-        int parent = (index - 1) / 2;
-        if (array[index] > array[parent]) {
-            swap(array, index, parent);
-            heapUp(array, parent);
-        }
-    }
 }

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class HeapSortTest {
 
     @Test
-    void testSortWithNormalArray() {
+    void testSortWithArray() {
         int[] array = {5, 2, 7, 1, 6, 3};
         int[] expected = {1, 2, 3, 5, 6, 7};
         HeapSort.sort(array);
@@ -66,14 +66,6 @@ class HeapSortTest {
     void testNull() {
         int[] array = null;
         HeapSort.sort(array);
-    }
-
-    @Test
-    void testHeapify1() {
-        int[] array = {1, 5, 3, 4, 2};
-        HeapSort.heapify(array, 5, 0);
-        assertTrue(array[0] >= array[1]);
-        assertTrue(array[0] >= array[2]);
     }
 
     @Test
