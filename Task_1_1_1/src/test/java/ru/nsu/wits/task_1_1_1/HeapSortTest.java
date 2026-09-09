@@ -2,6 +2,7 @@ package ru.nsu.wits.task_1_1_1;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -65,5 +66,20 @@ class HeapSortTest {
     void testNull() {
         int[] array = null;
         HeapSort.sort(array);
+    }
+
+    @Test
+    void testHeapify1() {
+        int[] array = {1, 5, 3, 4, 2};
+        HeapSort.heapify(array, 5, 0);
+        assertTrue(array[0] >= array[1]);
+        assertTrue(array[0] >= array[2]);
+    }
+
+    @Test
+    void testHeapify2() {
+        int[] array = {3, 1, 2};
+        HeapSort.heapify(array, 3, 0);
+        assertTrue(array[0] >= array[1] && array[0] >= array[2]);
     }
 }
