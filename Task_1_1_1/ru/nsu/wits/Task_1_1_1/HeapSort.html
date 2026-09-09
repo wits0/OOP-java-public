@@ -76,7 +76,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HeapSort</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Utility class for sorting arrays.</div>
+<div class="block">Heap sort realization.
+ Copyrighting by @wits0 2026 ez so ez task for me omg
+ Dota 2 6200mmr coach!!!</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -104,10 +106,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sort(int%5B%5D)" class="member-name-link">sort</a><wbr>(int[]&nbsp;array)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#heapify(int%5B%5D,int,int)" class="member-name-link">heapify</a><wbr>(int[]&nbsp;array,
+ int&nbsp;len,
+ int&nbsp;index)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Sorts the given array in ascending order.</div>
+<div class="block">Heapify return properties of Heap, used swap and heapify (recursively)
+ check that father > then his child's if not, we swap child who bigger
+ than father(use swap) then heapifies the affected subtree.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sort(int%5B%5D)" class="member-name-link">sort</a><wbr>(int[]&nbsp;array)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sorts the given array with using heapsort algorithm.</div>
 </div>
 </div>
 </div>
@@ -143,13 +154,29 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sort(int[])">
 <h3>sort</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(int[]&nbsp;array)</span></div>
-<div class="block">Sorts the given array in ascending order.</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(int[]&nbsp;array)</span></div>
+<div class="block">Sorts the given array with using heapsort algorithm.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>array</code> - the input array to be sorted</dd>
-<dt>Returns:</dt>
-<dd>a new sorted array</dd>
+<dd><code>array</code> - the input array to be sorted
+               return a new sorted array</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="heapify(int[],int,int)">
+<h3>heapify</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">heapify</span><wbr><span class="parameters">(int[]&nbsp;array,
+ int&nbsp;len,
+ int&nbsp;index)</span></div>
+<div class="block">Heapify return properties of Heap, used swap and heapify (recursively)
+ check that father > then his child's if not, we swap child who bigger
+ than father(use swap) then heapifies the affected subtree.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>array</code> - the array we need to heapify</dd>
+<dd><code>len</code> - the length of our array</dd>
+<dd><code>index</code> - the root index of the subtree to heapify</dd>
 </dl>
 </section>
 </li>
