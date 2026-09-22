@@ -1,17 +1,23 @@
 package ru.nsu.wits.task_1_1_2;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how OpenIDE suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import ru.nsu.wits.task_1_1_2.blackjack.Dealer;
+import ru.nsu.wits.task_1_1_2.blackjack.Deck;
+import ru.nsu.wits.task_1_1_2.blackjack.Player;
+import ru.nsu.wits.task_1_1_2.game.Game;
+import ru.nsu.wits.task_1_1_2.iostuff.View;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Deck deck = new Deck(1);
+        Player player = new Player("Игрок", scanner);
+        Dealer dealer = new Dealer("Дилер");
+        View view = new View();
+
+        Game game = new Game(deck, player, dealer, view);
+        game.start();
     }
 }
