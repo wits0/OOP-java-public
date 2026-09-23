@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-
 import org.junit.jupiter.api.Test;
-
 import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Card;
 import ru.nsu.wits.task_1_1_2.models.Deck;
