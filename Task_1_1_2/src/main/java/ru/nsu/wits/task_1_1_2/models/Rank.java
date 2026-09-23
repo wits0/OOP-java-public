@@ -27,7 +27,8 @@ public enum Rank {
     }
 
     /**
-     * Value
+     * Value of card.
+     *
      * @return card value
      */
     public Integer getValueCard() {
@@ -35,7 +36,8 @@ public enum Rank {
     }
 
     /**
-     * Name
+     * Name of card.
+     *
      * @return card name
      */
     public String getNameCard() {

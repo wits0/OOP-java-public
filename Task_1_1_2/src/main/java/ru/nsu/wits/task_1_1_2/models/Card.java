@@ -10,6 +10,7 @@ public class Card {
 
     /**
      * Creates a card.
+     *
      * @param rank card rank
      * @param suit card suit
      */
@@ -19,7 +20,8 @@ public class Card {
     }
 
     /**
-     * Rank
+     * Rank getRank.
+     *
      * @return card rank
      */
     public Rank getRank() {
@@ -27,7 +29,8 @@ public class Card {
     }
 
     /**
-     * Suit
+     * Suit getSuit.
+     *
      * @return card suit
      */
     public Suit getSuit() {

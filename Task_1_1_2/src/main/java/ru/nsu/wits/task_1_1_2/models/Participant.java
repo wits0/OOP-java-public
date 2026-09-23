@@ -16,7 +16,8 @@ public abstract class Participant {
     private final Hand hand = new Hand();
 
     /**
-     * Precipitant
+     * Precipitant name.
+     *
      * @param name name of the participant
      */
     protected Participant(String name) {
@@ -24,7 +25,8 @@ public abstract class Participant {
     }
 
     /**
-     * BMW
+     * Name of the participant.
+     *
      * @return name of the participant
      */
     public String getName() {
@@ -32,7 +34,8 @@ public abstract class Participant {
     }
 
     /**
-     * Hand
+     * Hand of the participant.
+     *
      * @return the hand of the participant
      */
     public Hand getHand() {
@@ -49,7 +52,8 @@ public abstract class Participant {
     }
 
     /**
-     * Bust
+     * Bust went over 21.
+     *
      * @return {@code true} if the participant went over 21
      */
     public boolean isBust() {
@@ -57,7 +61,8 @@ public abstract class Participant {
     }
 
     /**
-     * Blackjack
+     * Blackjack has this.
+     *
      * @return {@code true} if the participant has a blackjack
      */
     public boolean hasBlackjack() {

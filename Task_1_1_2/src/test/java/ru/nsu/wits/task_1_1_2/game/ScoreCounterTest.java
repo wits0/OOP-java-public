@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test for Score.
+ */
 class ScoreCounterTest {
     @Test void startsAtZero() {
         ScoreCounter counter = new ScoreCounter();

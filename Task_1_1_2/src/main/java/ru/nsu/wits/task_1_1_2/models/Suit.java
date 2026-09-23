@@ -16,7 +16,8 @@ public enum Suit {
     }
 
     /**
-     * getName
+     * getName of suit.
+     *
      * @return Russian name of the suit
      */
     public String getRuName() {

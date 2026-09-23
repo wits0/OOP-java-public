@@ -11,11 +11,14 @@ import ru.nsu.wits.task_1_1_2.models.Participant;
  */
 public class HandView {
 
-    /** Text shown instead of the hidden dealer card. */
+    /**
+     * Text shown instead of the hidden dealer card.
+     */
     private static final String HIDDEN_CARD = "<закрытая карта>";
 
     /**
      * Prints the player's hand with the score.
+     *
      * @param player the player
      */
     public void showPlayerHand(Participant player) {

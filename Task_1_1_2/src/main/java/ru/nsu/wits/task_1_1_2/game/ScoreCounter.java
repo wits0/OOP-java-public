@@ -23,7 +23,8 @@ public class ScoreCounter {
     }
 
     /**
-     * getPlayerWins omg
+     * getPlayerWins playersWin omg.
+     *
      * @return how many rounds the player has won
      */
     public int getPlayerWins() {
@@ -31,7 +32,8 @@ public class ScoreCounter {
     }
 
     /**
-     * what if deal win? getDealerWins!!!
+     * what if deal win? getDealerWins.
+     *
      * @return how many rounds the dealer has won
      */
     public int getDealerWins() {

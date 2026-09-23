@@ -74,7 +74,8 @@ public class Hand {
     }
 
     /**
-     * isBlackjack
+     * isBlackjack return if have card.
+     *
      * @return {@code true} if the hand has exactly two cards and they give 21
      */
     public boolean isBlackjack() {
@@ -82,7 +83,8 @@ public class Hand {
     }
 
     /**
-     * isBust
+     * isBust getScore.
+     *
      * @return {@code true} if the score of the hand is bigger than 21
      */
     public boolean isBust() {

@@ -14,6 +14,9 @@ import ru.nsu.wits.task_1_1_2.models.Suit;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Test of View.
+ */
 class ViewTest {
     private PrintStream original;
     private ByteArrayOutputStream out;

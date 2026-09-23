@@ -1,7 +1,5 @@
 package ru.nsu.wits.task_1_1_2.models;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

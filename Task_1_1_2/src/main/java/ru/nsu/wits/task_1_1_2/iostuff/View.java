@@ -83,7 +83,8 @@ public class View {
     }
 
     /**
-     * make a HandView
+     * make a HandView.
+     *
      * @return the hand view used to print hands
      */
     public HandView getHandView() {

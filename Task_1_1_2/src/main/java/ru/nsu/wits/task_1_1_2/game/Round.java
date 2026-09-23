@@ -20,7 +20,8 @@ public class Round {
     private final View view;
 
     /**
-     * Round classes
+     * Round classes.
+     *
      * @param deck the deck to draw cards from
      * @param player the player
      * @param dealer the dealer

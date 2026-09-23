@@ -49,6 +49,7 @@ public class Deck {
     }
 
     /**
+     * Card.
      * Fills the deck with {@code deckCount * 52} new cards.
      */
     private void refill() {

@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 import java.util.Scanner;
 
@@ -14,7 +12,8 @@ public class Player extends Participant {
     private final Scanner scanner;
 
     /**
-     * Player
+     * Player scanner to read.
+     *
      * @param name name of the player
      * @param scanner scanner to read user input
      */

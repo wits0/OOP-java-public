@@ -11,7 +11,8 @@ public class Dealer extends Participant {
     private static final int DEALER_STAND_SCORE = 17;
 
     /**
-     * super name
+     * Super name.
+     *
      * @param name name of the dealer
      */
     public Dealer(String name) {

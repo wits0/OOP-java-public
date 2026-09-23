@@ -17,7 +17,8 @@ public class Game {
     private final ScoreCounter scoreCounter = new ScoreCounter();
 
     /**
-     * Game
+     * Game deck player view.
+     *
      * @param deck   the deck to draw cards from
      * @param player the player
      * @param dealer the dealer
