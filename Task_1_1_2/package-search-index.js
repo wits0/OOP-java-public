@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.wits.task_1_1_2"},{"l":"ru.nsu.wits.task_1_1_2.game"},{"l":"ru.nsu.wits.task_1_1_2.iostuff"},{"l":"ru.nsu.wits.task_1_1_2.models"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.wits.blackjacklab"},{"l":"ru.nsu.wits.blackjacklab.game"},{"l":"ru.nsu.wits.blackjacklab.iostuff"},{"l":"ru.nsu.wits.blackjacklab.models"}];updateSearchResults();
