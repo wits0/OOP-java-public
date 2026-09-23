@@ -2,9 +2,9 @@ package ru.nsu.wits.task_1_1_2.iostuff;
 
 import java.util.List;
 
-import ru.nsu.wits.task_1_1_2.blackjack.Card;
-import ru.nsu.wits.task_1_1_2.blackjack.Hand;
-import ru.nsu.wits.task_1_1_2.blackjack.PlayerAbstract;
+import ru.nsu.wits.task_1_1_2.models.Card;
+import ru.nsu.wits.task_1_1_2.models.Hand;
+import ru.nsu.wits.task_1_1_2.models.Participant;
 
 /**
  * Prints hands of the participants.
@@ -19,7 +19,7 @@ public class HandView {
      *
      * @param player the player
      */
-    public void showPlayerHand(PlayerAbstract player) {
+    public void showPlayerHand(Participant player) {
         System.out.println("Ваши карты: " + player.getHand());
     }
 
@@ -32,7 +32,7 @@ public class HandView {
      * @param dealer the dealer
      * @param holeCardHidden {@code true} if the second card should be hidden
      */
-    public void showDealerHand(PlayerAbstract dealer, boolean holeCardHidden) {
+    public void showDealerHand(Participant dealer, boolean holeCardHidden) {
         Hand hand = dealer.getHand();
 
         System.out.print("Карты дилера: ");

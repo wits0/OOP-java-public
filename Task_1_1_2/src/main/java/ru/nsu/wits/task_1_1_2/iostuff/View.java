@@ -1,6 +1,6 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
-import ru.nsu.wits.task_1_1_2.blackjack.Card;
+import ru.nsu.wits.task_1_1_2.models.Card;
 
 /**
  * Prints all game messages to the console.
@@ -79,7 +79,7 @@ public class View {
      * @param dealerWins how many rounds the dealer has won
      */
     public void showScore(int playerWins, int dealerWins) {
-        System.out.println("Счет " + playerWins + ":" + dealerWins + " в вашу пользу.");
+        System.out.println("(ваш счет) " + playerWins + ":" + dealerWins + " (счет дилера)");
     }
 
     /**

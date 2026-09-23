@@ -1,7 +1,7 @@
 package ru.nsu.wits.task_1_1_2.game;
-import ru.nsu.wits.task_1_1_2.blackjack.Dealer;
-import ru.nsu.wits.task_1_1_2.blackjack.Deck;
-import ru.nsu.wits.task_1_1_2.blackjack.Player;
+import ru.nsu.wits.task_1_1_2.models.Dealer;
+import ru.nsu.wits.task_1_1_2.models.Deck;
+import ru.nsu.wits.task_1_1_2.models.Player;
 import ru.nsu.wits.task_1_1_2.iostuff.View;
 
 /**

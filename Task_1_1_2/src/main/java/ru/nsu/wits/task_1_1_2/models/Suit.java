@@ -1,4 +1,4 @@
-package ru.nsu.wits.task_1_1_2.blackjack;
+package ru.nsu.wits.task_1_1_2.models;
 /**
  * suit of our cards(naming)
  */

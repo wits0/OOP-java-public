@@ -1,11 +1,11 @@
-package ru.nsu.wits.task_1_1_2.blackjack;
+package ru.nsu.wits.task_1_1_2.models;
 import ru.nsu.wits.task_1_1_2.game.Move;
 import java.util.Scanner;
 
 /**
  * User = player.
  */
-public class Player extends PlayerAbstract {
+public class Player extends Participant {
 
     private final Scanner scanner;
 
