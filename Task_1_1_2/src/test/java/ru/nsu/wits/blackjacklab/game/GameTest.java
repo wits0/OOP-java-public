@@ -8,7 +8,12 @@ import java.util.Arrays;
 import java.util.Deque;
 import org.junit.jupiter.api.Test;
 import ru.nsu.wits.blackjacklab.iostuff.View;
-import ru.nsu.wits.blackjacklab.models.*;
+import ru.nsu.wits.blackjacklab.models.Card;
+import ru.nsu.wits.blackjacklab.models.Dealer;
+import ru.nsu.wits.blackjacklab.models.Deck;
+import ru.nsu.wits.blackjacklab.models.Player;
+import ru.nsu.wits.blackjacklab.models.Suit;
+import ru.nsu.wits.blackjacklab.models.Rank;
 
 /**
  * Tests the game loop and round reset.
