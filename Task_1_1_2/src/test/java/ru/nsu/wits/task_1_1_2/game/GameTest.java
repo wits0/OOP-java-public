@@ -1,18 +1,12 @@
 package ru.nsu.wits.task_1_1_2.game;
 
+import org.junit.jupiter.api.Test;
+import ru.nsu.wits.task_1_1_2.iostuff.View;
+import ru.nsu.wits.task_1_1_2.models.*;
+
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-
-import org.junit.jupiter.api.Test;
-
-import ru.nsu.wits.task_1_1_2.iostuff.View;
-import ru.nsu.wits.task_1_1_2.models.Card;
-import ru.nsu.wits.task_1_1_2.models.Dealer;
-import ru.nsu.wits.task_1_1_2.models.Deck;
-import ru.nsu.wits.task_1_1_2.models.Player;
-import ru.nsu.wits.task_1_1_2.models.Rank;
-import ru.nsu.wits.task_1_1_2.models.Suit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -66,7 +60,8 @@ class GameTest {
         private int playerWins;
         private int dealerWins;
 
-        /** Creates a view that checks the hands before the second round. */
+        /** Creates a view that checks the hands before the second round.
+         */
         StopAfterSecondRoundView(Player player, Dealer dealer) {
             this.player = player;
             this.dealer = dealer;

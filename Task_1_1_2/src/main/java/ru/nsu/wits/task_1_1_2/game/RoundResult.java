@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.game;
-// CHECKSTYLE.ON: PackageName
 
 /**
  * Possible results of a single round.

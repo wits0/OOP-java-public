@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.game;
-// CHECKSTYLE.ON: PackageName
 
 import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Dealer;
@@ -19,10 +17,10 @@ public class Game {
     private final ScoreCounter scoreCounter = new ScoreCounter();
 
     /**
-     * @param deck the deck to draw cards from
+     * @param deck   the deck to draw cards from
      * @param player the player
      * @param dealer the dealer
-     * @param view the view to print messages
+     * @param view   the view to print messages
      */
     public Game(Deck deck, Player player, Dealer dealer, View view) {
         this.deck = deck;

@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2;
-// CHECKSTYLE.ON: PackageName
 
 import java.util.Random;
 import java.util.Scanner;

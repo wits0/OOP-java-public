@@ -1,6 +1,4 @@
-
 package ru.nsu.wits.task_1_1_2.game;
-
 
 /**
  * Keeps the score of the game: how many rounds the player and the dealer have won.
