@@ -16,7 +16,6 @@ public class HandView {
 
     /**
      * Prints the player's hand with the score.
-     *
      * @param player the player
      */
     public void showPlayerHand(Participant player) {

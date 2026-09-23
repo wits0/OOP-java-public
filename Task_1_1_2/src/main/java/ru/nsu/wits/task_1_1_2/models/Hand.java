@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -76,6 +74,7 @@ public class Hand {
     }
 
     /**
+     * isBlackjack
      * @return {@code true} if the hand has exactly two cards and they give 21
      */
     public boolean isBlackjack() {
@@ -83,6 +82,7 @@ public class Hand {
     }
 
     /**
+     * isBust
      * @return {@code true} if the score of the hand is bigger than 21
      */
     public boolean isBust() {

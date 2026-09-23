@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -75,6 +73,7 @@ public class Deck {
     }
 
     /**
+     * size
      * @return number of cards left in the deck
      */
     int size() {
@@ -82,6 +81,7 @@ public class Deck {
     }
 
     /**
+     * isEmpty
      * @return {@code true} if there are no cards left
      */
     boolean isEmpty() {

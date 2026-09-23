@@ -19,7 +19,6 @@ public class Main {
 
     /**
      * Starts the blackjack application.
-     *
      * @param args command-line arguments
      */
     public static void main(String[] args) {

@@ -14,6 +14,7 @@ public class Player extends Participant {
     private final Scanner scanner;
 
     /**
+     * Player
      * @param name name of the player
      * @param scanner scanner to read user input
      */

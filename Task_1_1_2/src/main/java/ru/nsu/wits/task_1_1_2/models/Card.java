@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 /**
  * A playing card with a rank and a suit.
@@ -12,7 +10,6 @@ public class Card {
 
     /**
      * Creates a card.
-     *
      * @param rank card rank
      * @param suit card suit
      */
@@ -22,6 +19,7 @@ public class Card {
     }
 
     /**
+     * Rank
      * @return card rank
      */
     public Rank getRank() {
@@ -29,6 +27,7 @@ public class Card {
     }
 
     /**
+     * Suit
      * @return card suit
      */
     public Suit getSuit() {

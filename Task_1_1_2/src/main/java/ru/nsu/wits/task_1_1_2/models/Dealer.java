@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 import ru.nsu.wits.task_1_1_2.game.Move;
 
@@ -13,6 +11,7 @@ public class Dealer extends Participant {
     private static final int DEALER_STAND_SCORE = 17;
 
     /**
+     * super name
      * @param name name of the dealer
      */
     public Dealer(String name) {

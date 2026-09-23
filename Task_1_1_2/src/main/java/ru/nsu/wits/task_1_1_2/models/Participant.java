@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 import ru.nsu.wits.task_1_1_2.game.Move;
 
@@ -18,6 +16,7 @@ public abstract class Participant {
     private final Hand hand = new Hand();
 
     /**
+     * Precipitant
      * @param name name of the participant
      */
     protected Participant(String name) {
@@ -25,6 +24,7 @@ public abstract class Participant {
     }
 
     /**
+     * BMW
      * @return name of the participant
      */
     public String getName() {
@@ -32,6 +32,7 @@ public abstract class Participant {
     }
 
     /**
+     * Hand
      * @return the hand of the participant
      */
     public Hand getHand() {
@@ -48,6 +49,7 @@ public abstract class Participant {
     }
 
     /**
+     * Bust
      * @return {@code true} if the participant went over 21
      */
     public boolean isBust() {
@@ -55,6 +57,7 @@ public abstract class Participant {
     }
 
     /**
+     * Blackjack
      * @return {@code true} if the participant has a blackjack
      */
     public boolean hasBlackjack() {

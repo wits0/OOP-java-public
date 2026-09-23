@@ -1,6 +1,4 @@
-// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-// CHECKSTYLE.ON: PackageName
 
 /**
  * Card ranks and their blackjack values.
@@ -29,6 +27,7 @@ public enum Rank {
     }
 
     /**
+     * Value
      * @return card value
      */
     public Integer getValueCard() {
@@ -36,6 +35,7 @@ public enum Rank {
     }
 
     /**
+     * Name
      * @return card name
      */
     public String getNameCard() {
