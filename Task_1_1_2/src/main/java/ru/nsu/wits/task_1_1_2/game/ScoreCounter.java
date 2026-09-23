@@ -1,4 +1,7 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.game;
+// CHECKSTYLE.ON: PackageName
+
 /**
  * Keeps the score of the game: how many rounds the player and the dealer have won.
  */

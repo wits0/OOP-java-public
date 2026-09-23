@@ -1,16 +1,29 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2;
+// CHECKSTYLE.ON: PackageName
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
+
+import ru.nsu.wits.task_1_1_2.game.Game;
+import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Dealer;
 import ru.nsu.wits.task_1_1_2.models.Deck;
 import ru.nsu.wits.task_1_1_2.models.Player;
-import ru.nsu.wits.task_1_1_2.game.Game;
-import ru.nsu.wits.task_1_1_2.iostuff.View;
 
+/**
+ * Entry point of the blackjack application.
+ */
 public class Main {
+
     private static final int MIN_DECKS = 3;
     private static final int MAX_DECKS = 6;
+
+    /**
+     * Starts the blackjack application.
+     *
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();

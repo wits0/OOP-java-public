@@ -1,5 +1,10 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
+// CHECKSTYLE.ON: PackageName
 
+/**
+ * Card ranks and their blackjack values.
+ */
 public enum Rank {
     TWO(2, "Двойка"),
     THREE(3, "Тройка"),
@@ -14,6 +19,7 @@ public enum Rank {
     QUEEN(10, "Дама"),
     KING(10, "Король"),
     ACE(11, "Туз");
+
     private final Integer valueCard;
     private final String nameCard;
 
@@ -22,10 +28,16 @@ public enum Rank {
         this.nameCard = nameCard;
     }
 
+    /**
+     * @return card value
+     */
     public Integer getValueCard() {
         return valueCard;
     }
 
+    /**
+     * @return card name
+     */
     public String getNameCard() {
         return nameCard;
     }

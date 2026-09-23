@@ -1,5 +1,9 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
+// CHECKSTYLE.ON: PackageName
+
 import ru.nsu.wits.task_1_1_2.game.Move;
+
 /**
  * Common part for all game participants: a player and a dealer.
  * Holds a name and a hand, and knows how to take cards.
@@ -64,4 +68,3 @@ public abstract class Participant {
      */
     public abstract Move decideMove();
 }
-

@@ -1,6 +1,10 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.models;
-import ru.nsu.wits.task_1_1_2.game.Move;
+// CHECKSTYLE.ON: PackageName
+
 import java.util.Scanner;
+
+import ru.nsu.wits.task_1_1_2.game.Move;
 
 /**
  * User = player.

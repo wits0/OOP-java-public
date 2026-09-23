@@ -1,10 +1,12 @@
+// CHECKSTYLE.OFF: PackageName
 package ru.nsu.wits.task_1_1_2.game;
+// CHECKSTYLE.ON: PackageName
 
+import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Card;
 import ru.nsu.wits.task_1_1_2.models.Dealer;
 import ru.nsu.wits.task_1_1_2.models.Deck;
 import ru.nsu.wits.task_1_1_2.models.Player;
-import ru.nsu.wits.task_1_1_2.iostuff.View;
 
 /**
  * One round of blackjack: deal, moves, compare, result.
