@@ -2,7 +2,6 @@ package ru.nsu.wits.task_1_1_2;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import ru.nsu.wits.task_1_1_2.game.Game;
 import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Dealer;

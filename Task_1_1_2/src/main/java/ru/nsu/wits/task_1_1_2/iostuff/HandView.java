@@ -1,7 +1,6 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
 import java.util.List;
-
 import ru.nsu.wits.task_1_1_2.models.Card;
 import ru.nsu.wits.task_1_1_2.models.Hand;
 import ru.nsu.wits.task_1_1_2.models.Participant;

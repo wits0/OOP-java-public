@@ -1,7 +1,6 @@
 package ru.nsu.wits.task_1_1_2.models;
 
 import java.util.Scanner;
-
 import ru.nsu.wits.task_1_1_2.game.Move;
 
 /**

@@ -3,7 +3,6 @@ package ru.nsu.wits.task_1_1_2.game;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-
 import ru.nsu.wits.task_1_1_2.iostuff.View;
 import ru.nsu.wits.task_1_1_2.models.Card;
 import ru.nsu.wits.task_1_1_2.models.Deck;
@@ -13,7 +12,6 @@ import ru.nsu.wits.task_1_1_2.models.Rank;
 import ru.nsu.wits.task_1_1_2.models.Suit;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

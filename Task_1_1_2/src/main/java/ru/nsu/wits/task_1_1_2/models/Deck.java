@@ -74,7 +74,8 @@ public class Deck {
     }
 
     /**
-     * size
+     * Size of numbers.
+     *
      * @return number of cards left in the deck
      */
     int size() {
@@ -82,7 +83,8 @@ public class Deck {
     }
 
     /**
-     * isEmpty
+     * isEmpty or not.
+     *
      * @return {@code true} if there are no cards left
      */
     boolean isEmpty() {
