@@ -23,7 +23,8 @@ class HandViewTest {
     private PrintStream original;
     private ByteArrayOutputStream out;
 
-    @BeforeEach void capture() {
+    @BeforeEach
+    void capture() {
         original = System.out;
         out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
@@ -34,14 +35,16 @@ class HandViewTest {
         System.setOut(original);
     }
 
-    @Test void playerHandIsPrinted() {
+    @Test
+    void playerHandIsPrinted() {
         Player player = new Player("Игрок", new java.util.Scanner("0\n"));
         player.takeCard(new Card(Rank.ACE, Suit.SPADES));
         new HandView().showPlayerHand(player);
         assertTrue(out.toString().contains("Ваши карты: [Туз Пики (11)] > 11"));
     }
 
-    @Test void dealerHandCanBeHidden() {
+    @Test
+    void dealerHandCanBeHidden() {
         Dealer dealer = new Dealer("Дилер");
         dealer.takeCard(new Card(Rank.ACE, Suit.SPADES));
         dealer.takeCard(new Card(Rank.KING, Suit.HEARTS));
@@ -51,7 +54,8 @@ class HandViewTest {
         assertEquals(expected, out.toString());
     }
 
-    @Test void dealerHandCanBeShownFully() {
+    @Test
+    void dealerHandCanBeShownFully() {
         Dealer dealer = new Dealer("Дилер");
         dealer.takeCard(new Card(Rank.ACE, Suit.SPADES));
         dealer.takeCard(new Card(Rank.KING, Suit.HEARTS));

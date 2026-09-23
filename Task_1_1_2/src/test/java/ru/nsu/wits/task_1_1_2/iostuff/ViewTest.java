@@ -32,7 +32,8 @@ class ViewTest {
         System.setOut(original);
     }
 
-    @Test void messagesArePrinted() {
+    @Test
+    void messagesArePrinted() {
         View view = new View();
         view.showWelcome();
         view.showRoundStart(3);
@@ -54,7 +55,8 @@ class ViewTest {
         assertTrue(s.contains("(ваш счет) 2:4 (счет дилера)"));
     }
 
-    @Test void getHandViewReturnsUsableView() {
+    @Test
+    void getHandViewReturnsUsableView() {
         assertNotNull(new View().getHandView());
     }
 }

@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SuitTest {
-    @Test void suitNamesAreReturned() {
+    @Test
+    void suitNamesAreReturned() {
         assertEquals("Пики", Suit.SPADES.getRuName());
         assertEquals("Черви", Suit.HEARTS.getRuName());
         assertEquals("Бубны", Suit.DIAMONDS.getRuName());

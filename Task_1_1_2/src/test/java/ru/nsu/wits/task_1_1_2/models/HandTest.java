@@ -12,7 +12,8 @@ class HandTest {
         return new Card(rank, Suit.SPADES);
     }
 
-    @Test void addAndGetCardsWorkAndListIsUnmodifiable() {
+    @Test
+    void addAndGetCardsWorkAndListIsUnmodifiable() {
         Hand hand = new Hand();
         hand.add(card(Rank.TWO));
         assertEquals(1, hand.getCards().size());
@@ -20,7 +21,8 @@ class HandTest {
         assertThrows(UnsupportedOperationException.class, () -> hand.getCards().clear());
     }
 
-    @Test void clearRemovesAllCards() {
+    @Test
+    void clearRemovesAllCards() {
         Hand hand = new Hand();
         hand.add(card(Rank.TWO));
         hand.clear();
@@ -28,14 +30,16 @@ class HandTest {
         assertEquals(0, hand.getScore());
     }
 
-    @Test void scoreUsesAceAsElevenWhenPossible() {
+    @Test
+    void scoreUsesAceAsElevenWhenPossible() {
         Hand hand = new Hand();
         hand.add(card(Rank.ACE));
         hand.add(card(Rank.SIX));
         assertEquals(17, hand.getScore());
     }
 
-    @Test void scoreConvertsAceToOneWhenNeeded() {
+    @Test
+    void scoreConvertsAceToOneWhenNeeded() {
         Hand hand = new Hand();
         hand.add(card(Rank.ACE));
         hand.add(card(Rank.KING));
@@ -43,7 +47,8 @@ class HandTest {
         assertEquals(16, hand.getScore());
     }
 
-    @Test void multipleAcesAreAdjustedAsNeeded() {
+    @Test
+    void multipleAcesAreAdjustedAsNeeded() {
         Hand hand = new Hand();
         hand.add(card(Rank.ACE));
         hand.add(card(Rank.ACE));
@@ -51,7 +56,8 @@ class HandTest {
         assertEquals(21, hand.getScore());
     }
 
-    @Test void blackjackRequiresExactlyTwoCardsAndScore21() {
+    @Test
+    void blackjackRequiresExactlyTwoCardsAndScore21() {
         Hand hand = new Hand();
         hand.add(card(Rank.ACE));
         hand.add(card(Rank.KING));
@@ -61,7 +67,8 @@ class HandTest {
         assertFalse(hand.isBlackjack());
     }
 
-    @Test void bustIsTrueOnlyAbove21() {
+    @Test
+    void bustIsTrueOnlyAbove21() {
         Hand hand = new Hand();
         hand.add(card(Rank.KING));
         hand.add(card(Rank.QUEEN));
@@ -74,7 +81,8 @@ class HandTest {
         assertFalse(hand.isBust());
     }
 
-    @Test void toStringContainsCardsAndScore() {
+    @Test
+    void toStringContainsCardsAndScore() {
         Hand hand = new Hand();
         hand.add(card(Rank.TEN));
         assertEquals("[Десятка Пики (10)] > 10", hand.toString());

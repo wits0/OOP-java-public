@@ -9,7 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
  * Test of Round.
  */
 class RoundResultTest {
-    @Test void enumContainsAllResults() {
+    @Test
+    void enumContainsAllResults() {
         assertArrayEquals(new RoundResult[]{
             RoundResult.PLAYER_WIN, RoundResult.DEALER_WIN, RoundResult.DRAW,
             RoundResult.PLAYER_BLACKJACK, RoundResult.DEALER_BLACKJACK

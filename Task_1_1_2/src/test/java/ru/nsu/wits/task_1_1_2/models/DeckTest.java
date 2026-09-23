@@ -11,18 +11,21 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DeckTest {
-    @Test void singleDeckHas52Cards() {
+    @Test
+    void singleDeckHas52Cards() {
         Deck deck = new Deck(1);
         assertEquals(52, deck.size());
         assertFalse(deck.isEmpty());
     }
 
-    @Test void multipleDecksHaveExpectedSize() {
+    @Test
+    void multipleDecksHaveExpectedSize() {
         Deck deck = new Deck(3);
         assertEquals(156, deck.size());
     }
 
-    @Test void drawingRemovesCardsUntilEmpty() {
+    @Test
+    void drawingRemovesCardsUntilEmpty() {
         Deck deck = new Deck(1);
         for (int i = 0; i < 51; i++) {
             assertNotNull(deck.draw());
@@ -34,7 +37,8 @@ class DeckTest {
         assertTrue(deck.isEmpty());
     }
 
-    @Test void drawingFromEmptyDeckRefillsAndShuffles() {
+    @Test
+    void drawingFromEmptyDeckRefillsAndShuffles() {
         Deck deck = new Deck(1);
         for (int i = 0; i < 52; i++) {
             assertNotNull(deck.draw());
@@ -44,7 +48,8 @@ class DeckTest {
         assertEquals(51, deck.size());
     }
 
-    @Test void drawnCardsMakeUpSingleDeckBeforeRefill() {
+    @Test
+    void drawnCardsMakeUpSingleDeckBeforeRefill() {
         Deck deck = new Deck(1);
         Set<String> cards = new HashSet<>();
         for (int i = 0; i < 52; i++) {

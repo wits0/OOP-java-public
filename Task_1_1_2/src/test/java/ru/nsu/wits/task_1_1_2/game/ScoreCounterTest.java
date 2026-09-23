@@ -8,20 +8,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Test for Score.
  */
 class ScoreCounterTest {
-    @Test void startsAtZero() {
+    @Test
+    void startsAtZero() {
         ScoreCounter counter = new ScoreCounter();
         assertEquals(0, counter.getPlayerWins());
         assertEquals(0, counter.getDealerWins());
     }
 
-    @Test void incrementsPlayerWins() {
+    @Test
+    void incrementsPlayerWins() {
         ScoreCounter counter = new ScoreCounter();
         counter.addPlayerWin();
         counter.addPlayerWin();
         assertEquals(2, counter.getPlayerWins());
     }
 
-    @Test void incrementsDealerWins() {
+    @Test
+    void incrementsDealerWins() {
         ScoreCounter counter = new ScoreCounter();
         counter.addDealerWin();
         counter.addDealerWin();

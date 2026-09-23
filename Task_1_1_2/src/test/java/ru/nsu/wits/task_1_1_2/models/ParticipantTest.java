@@ -20,13 +20,15 @@ class ParticipantTest {
         }
     }
 
-    @Test void nameAndHandAreExposed() {
+    @Test
+    void nameAndHandAreExposed() {
         TestParticipant p = new TestParticipant("Test");
         assertEquals("Test", p.getName());
         assertNotNull(p.getHand());
     }
 
-    @Test void takeCardAddsCardAndStatusMethodsDelegateToHand() {
+    @Test
+    void takeCardAddsCardAndStatusMethodsDelegateToHand() {
         TestParticipant p = new TestParticipant("Test");
         p.takeCard(new Card(Rank.ACE, Suit.SPADES));
         p.takeCard(new Card(Rank.KING, Suit.HEARTS));
@@ -35,7 +37,8 @@ class ParticipantTest {
         assertFalse(p.isBust());
     }
 
-    @Test void decideMoveCanBeImplementedBySubclass() {
+    @Test
+    void decideMoveCanBeImplementedBySubclass() {
         assertEquals(Move.STAND, new TestParticipant("Test").decideMove());
     }
 }

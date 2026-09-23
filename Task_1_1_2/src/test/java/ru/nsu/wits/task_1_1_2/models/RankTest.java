@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RankTest {
-    @Test void everyRankHasExpectedValueAndName() {
+    @Test
+    void everyRankHasExpectedValueAndName() {
         assertEquals(2, Rank.TWO.getValueCard());
         assertEquals("Двойка", Rank.TWO.getNameCard());
         assertEquals(3, Rank.THREE.getValueCard());

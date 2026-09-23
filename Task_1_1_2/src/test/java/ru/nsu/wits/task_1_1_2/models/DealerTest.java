@@ -7,7 +7,8 @@ import ru.nsu.wits.task_1_1_2.game.Move;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DealerTest {
-    @Test void dealerHitsBelow17() {
+    @Test
+    void dealerHitsBelow17() {
         Dealer dealer = new Dealer("Дилер");
         dealer.takeCard(new Card(Rank.TEN, Suit.SPADES));
         dealer.takeCard(new Card(Rank.SIX, Suit.HEARTS));
@@ -15,7 +16,8 @@ class DealerTest {
         assertEquals(Move.HIT, dealer.decideMove());
     }
 
-    @Test void dealerStandsAt17OrMore() {
+    @Test
+    void dealerStandsAt17OrMore() {
         Dealer dealer = new Dealer("Дилер");
         dealer.takeCard(new Card(Rank.TEN, Suit.SPADES));
         dealer.takeCard(new Card(Rank.SEVEN, Suit.HEARTS));
