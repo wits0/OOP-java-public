@@ -1,15 +1,14 @@
 package ru.nsu.wits.blackjacklab.game;
 
-import org.junit.jupiter.api.Test;
-import ru.nsu.wits.blackjacklab.iostuff.View;
-import ru.nsu.wits.blackjacklab.models.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
+import ru.nsu.wits.blackjacklab.iostuff.View;
+import ru.nsu.wits.blackjacklab.models.*;
 
 /**
  * Tests the game loop and round reset.
