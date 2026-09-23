@@ -1,5 +1,8 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -10,9 +13,6 @@ import org.junit.jupiter.api.Test;
 import ru.nsu.wits.task_1_1_2.models.Card;
 import ru.nsu.wits.task_1_1_2.models.Rank;
 import ru.nsu.wits.task_1_1_2.models.Suit;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test of View.

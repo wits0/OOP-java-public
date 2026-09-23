@@ -1,5 +1,8 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -12,9 +15,6 @@ import ru.nsu.wits.task_1_1_2.models.Dealer;
 import ru.nsu.wits.task_1_1_2.models.Player;
 import ru.nsu.wits.task_1_1_2.models.Rank;
 import ru.nsu.wits.task_1_1_2.models.Suit;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test of HandView.
