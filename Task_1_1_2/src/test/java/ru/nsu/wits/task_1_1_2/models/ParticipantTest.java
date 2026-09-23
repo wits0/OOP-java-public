@@ -1,13 +1,23 @@
 package ru.nsu.wits.task_1_1_2.models;
 
 import org.junit.jupiter.api.Test;
+
 import ru.nsu.wits.task_1_1_2.game.Move;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParticipantTest {
     private static class TestParticipant extends Participant {
-        TestParticipant(String name) { super(name); }
-        @Override public Move decideMove() { return Move.STAND; }
+        TestParticipant(String name) {
+            super(name);
+        }
+        @Override
+        public Move decideMove() {
+            return Move.STAND;
+        }
     }
 
     @Test void nameAndHandAreExposed() {

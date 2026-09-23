@@ -1,9 +1,18 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
-import org.junit.jupiter.api.*;
-import ru.nsu.wits.task_1_1_2.models.*;
-import java.io.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import ru.nsu.wits.task_1_1_2.models.Card;
+import ru.nsu.wits.task_1_1_2.models.Rank;
+import ru.nsu.wits.task_1_1_2.models.Suit;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ViewTest {
     private PrintStream original;
@@ -15,7 +24,10 @@ class ViewTest {
         System.setOut(new PrintStream(out));
     }
 
-    @AfterEach void restore() { System.setOut(original); }
+    @AfterEach
+    void restore() {
+        System.setOut(original);
+    }
 
     @Test void messagesArePrinted() {
         View view = new View();

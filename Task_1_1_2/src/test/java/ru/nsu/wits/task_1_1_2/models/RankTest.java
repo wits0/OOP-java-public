@@ -1,7 +1,8 @@
 package ru.nsu.wits.task_1_1_2.models;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RankTest {
     @Test void everyRankHasExpectedValueAndName() {

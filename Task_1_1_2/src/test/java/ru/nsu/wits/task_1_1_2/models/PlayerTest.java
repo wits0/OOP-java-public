@@ -1,9 +1,12 @@
 package ru.nsu.wits.task_1_1_2.models;
 
-import org.junit.jupiter.api.Test;
-import ru.nsu.wits.task_1_1_2.game.Move;
 import java.util.Scanner;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import ru.nsu.wits.task_1_1_2.game.Move;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PlayerTest {
     @Test void input1MeansHit() {

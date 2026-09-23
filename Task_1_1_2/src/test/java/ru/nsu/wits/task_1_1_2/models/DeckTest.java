@@ -1,9 +1,14 @@
 package ru.nsu.wits.task_1_1_2.models;
 
-import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DeckTest {
     @Test void singleDeckHas52Cards() {
@@ -39,7 +44,7 @@ class DeckTest {
         assertEquals(51, deck.size());
     }
 
-    @Test void drawnCardsRepresentACompleteSingleDeckBeforeRefill() {
+    @Test void drawnCardsMakeUpSingleDeckBeforeRefill() {
         Deck deck = new Deck(1);
         Set<String> cards = new HashSet<>();
         for (int i = 0; i < 52; i++) {

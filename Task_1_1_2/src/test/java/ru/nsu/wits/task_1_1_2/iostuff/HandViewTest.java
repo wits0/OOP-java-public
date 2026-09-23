@@ -1,9 +1,20 @@
 package ru.nsu.wits.task_1_1_2.iostuff;
 
-import org.junit.jupiter.api.*;
-import ru.nsu.wits.task_1_1_2.models.*;
-import java.io.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import ru.nsu.wits.task_1_1_2.models.Card;
+import ru.nsu.wits.task_1_1_2.models.Dealer;
+import ru.nsu.wits.task_1_1_2.models.Player;
+import ru.nsu.wits.task_1_1_2.models.Rank;
+import ru.nsu.wits.task_1_1_2.models.Suit;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class HandViewTest {
     private PrintStream original;
@@ -15,7 +26,10 @@ class HandViewTest {
         System.setOut(new PrintStream(out));
     }
 
-    @AfterEach void restore() { System.setOut(original); }
+    @AfterEach
+    void restore() {
+        System.setOut(original);
+    }
 
     @Test void playerHandIsPrinted() {
         Player player = new Player("Игрок", new java.util.Scanner("0\n"));
@@ -29,7 +43,9 @@ class HandViewTest {
         dealer.takeCard(new Card(Rank.ACE, Suit.SPADES));
         dealer.takeCard(new Card(Rank.KING, Suit.HEARTS));
         new HandView().showDealerHand(dealer, true);
-        assertEquals("Карты дилера: [Туз Пики (11), <закрытая карта>]" + System.lineSeparator(), out.toString());
+        String expected = "Карты дилера: [Туз Пики (11), <закрытая карта>]"
+                + System.lineSeparator();
+        assertEquals(expected, out.toString());
     }
 
     @Test void dealerHandCanBeShownFully() {
@@ -37,6 +53,8 @@ class HandViewTest {
         dealer.takeCard(new Card(Rank.ACE, Suit.SPADES));
         dealer.takeCard(new Card(Rank.KING, Suit.HEARTS));
         new HandView().showDealerHand(dealer, false);
-        assertEquals("Карты дилера: [Туз Пики (11), Король Черви (10)] > 21" + System.lineSeparator(), out.toString());
+        String expected = "Карты дилера: [Туз Пики (11), Король Черви (10)] > 21"
+                + System.lineSeparator();
+        assertEquals(expected, out.toString());
     }
 }
