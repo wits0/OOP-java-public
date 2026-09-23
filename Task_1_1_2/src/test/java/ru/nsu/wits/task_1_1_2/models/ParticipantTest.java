@@ -13,6 +13,7 @@ class ParticipantTest {
         TestParticipant(String name) {
             super(name);
         }
+
         @Override
         public Move decideMove() {
             return Move.STAND;
