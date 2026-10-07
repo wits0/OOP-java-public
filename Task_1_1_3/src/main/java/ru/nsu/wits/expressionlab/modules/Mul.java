@@ -26,7 +26,6 @@ public class Mul extends Expression {
     public Expression derivative(String variable) {
         Expression leftPrime = left.derivative(variable);
         Expression rightPrime = right.derivative(variable);
-        // (f * g)' = f' * g + f * g'
         return new Add(
                 new Mul(leftPrime, right),
                 new Mul(left, rightPrime)

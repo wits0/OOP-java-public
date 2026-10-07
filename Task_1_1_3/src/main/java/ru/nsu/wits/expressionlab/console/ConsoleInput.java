@@ -37,7 +37,7 @@ public class ConsoleInput {
             try {
                 return Integer.parseInt(line);
             } catch (NumberFormatException e) {
-                System.out.println("Введите число.");
+                System.out.println("input number(YO starii boh zdes)");
             }
         }
     }

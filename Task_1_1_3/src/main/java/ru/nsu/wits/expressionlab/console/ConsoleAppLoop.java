@@ -1,7 +1,5 @@
 package ru.nsu.wits.expressionlab.console;
 
-import java.util.Scanner;
-
 import ru.nsu.wits.expressionlab.modules.Expression;
 import ru.nsu.wits.expressionlab.parsers.ExpressionParser;
 
@@ -23,13 +21,13 @@ public class ConsoleAppLoop {
      * Runs the main dialog loop.
      */
     public void run() {
-        System.out.println("Привет! Я сделал вывод с помощью дипсика потому что я долбаеб!!!");
+        System.out.println("Welcome to the Expression Calculator!");
         while (true) {
             System.out.println();
-            System.out.print("Введите выражение (или 'exit' для выхода): ");
+            System.out.print("Enter an expression (or 'exit' to quit): ");
             String line = input.readLine();
             if (line.equals("exit")) {
-                System.out.println("Пока!");
+                System.out.println("Bye!");
                 return;
             }
             handleExpression(line);
@@ -46,10 +44,10 @@ public class ConsoleAppLoop {
         try {
             expression = ExpressionParser.parse(line);
         } catch (RuntimeException e) {
-            System.out.println("Не удалось распознать выражение: " + e.getMessage());
+            System.out.println("Failed to parse the expression: " + e.getMessage());
             return;
         }
-        System.out.println("Распознано: " + expression);
+        System.out.println("Parsed: " + expression);
 
         while (true) {
             printMenu();
@@ -59,7 +57,7 @@ public class ConsoleAppLoop {
             }
             switch (choice) {
                 case 1:
-                    System.out.println("Выражение: " + expression);
+                    System.out.println("Expression: " + expression);
                     break;
                 case 2:
                     handleDerivative(expression);
@@ -68,35 +66,35 @@ public class ConsoleAppLoop {
                     handleEval(expression);
                     break;
                 default:
-                    System.out.println("Неизвестная команда.");
+                    System.out.println("Unknown command.");
             }
         }
     }
 
     private void handleDerivative(Expression expression) {
-        System.out.print("По какой переменной? ");
+        System.out.print("Differentiate by which variable? ");
         String variable = input.readLine();
         Expression derivative = expression.derivative(variable);
-        System.out.println("Производная: " + derivative);
+        System.out.println("Derivative: " + derivative);
     }
 
     private void handleEval(Expression expression) {
-        System.out.print("Введите означивание (например \"x = 10; y = 13\"): ");
+        System.out.print("Enter assignments (for example \"x = 10; y = 13\"): ");
         String assignments = input.readLine();
         try {
             int result = expression.eval(assignments);
-            System.out.println("Результат: " + result);
+            System.out.println("Result: " + result);
         } catch (RuntimeException e) {
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
     private void printMenu() {
         System.out.println();
-        System.out.println("1 - вывести выражение");
-        System.out.println("2 - найти производную");
-        System.out.println("3 - вычислить значение");
-        System.out.println("0 - ввести новое выражение");
+        System.out.println("1 - print the expression");
+        System.out.println("2 - compute the derivative");
+        System.out.println("3 - evaluate the expression");
+        System.out.println("0 - enter a new expression");
         System.out.print("> ");
     }
 }

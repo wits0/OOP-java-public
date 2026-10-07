@@ -26,7 +26,6 @@ public class Div extends Expression {
     public Expression derivative(String variable) {
         Expression leftPrime = left.derivative(variable);
         Expression rightPrime = right.derivative(variable);
-        // (f / g)' = (f' * g - f * g') / (g * g)
         return new Div(
                 new Sub(
                         new Mul(leftPrime, right),
