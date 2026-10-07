@@ -3,7 +3,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'ru.nsu.wits.expressionlab'
+group = 'ru.nsu.wits.task_1_1_3'
 version = '1.0-SNAPSHOT'
 
 repositories {
