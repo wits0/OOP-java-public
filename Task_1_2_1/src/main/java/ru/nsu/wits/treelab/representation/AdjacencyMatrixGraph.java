@@ -2,14 +2,21 @@ package ru.nsu.wits.treelab.representation;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import ru.nsu.wits.treelab.graph.AbstractGraph;
 import ru.nsu.wits.treelab.graph.Vertex;
 
-/** A directed edge is stored at matrix[source][target]. */
+/**
+ * Реализация ориентированного графа на основе матрицы смежности.
+ * Направленное ребро хранится в ячейке matrix[source][target].
+ */
 public final class AdjacencyMatrixGraph extends AbstractGraph {
     private final List<Vertex> vertices = new ArrayList<>();
     private final List<List<Boolean>> matrix = new ArrayList<>();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(Vertex vertex) {
         if (vertices.contains(vertex)) {
@@ -34,6 +41,9 @@ public final class AdjacencyMatrixGraph extends AbstractGraph {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(Vertex vertex) {
         int index = vertices.indexOf(vertex);
@@ -55,6 +65,9 @@ public final class AdjacencyMatrixGraph extends AbstractGraph {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -66,6 +79,9 @@ public final class AdjacencyMatrixGraph extends AbstractGraph {
         return matrix.get(source).get(target);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageAddEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -73,6 +89,9 @@ public final class AdjacencyMatrixGraph extends AbstractGraph {
         matrix.get(source).set(target, true);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageRemoveEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -80,12 +99,18 @@ public final class AdjacencyMatrixGraph extends AbstractGraph {
         matrix.get(source).set(target, false);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getVertices() {
         // Возвращаем копию, чтобы внешний код не мог испортить внутреннее состояние
         return new ArrayList<>(vertices);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getNeighbors(Vertex vertex) {
         int source = vertices.indexOf(vertex);

@@ -2,14 +2,29 @@ package ru.nsu.wits.treelab.representation;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import ru.nsu.wits.treelab.graph.AbstractGraph;
 import ru.nsu.wits.treelab.graph.Vertex;
 
-/** Each column is one edge: -1 at source, +1 at target, 2 for a loop. */
+/**
+ * Реализация ориентированного графа на основе матрицы инцидентности.
+ * Каждый столбец представляет одно ребро: -1 в строке истока, +1 в строке стока,
+ * 2 для петли (вершина связана сама с собой).
+ */
 public final class IncidenceMatrixGraph extends AbstractGraph {
+    /** Значение для начала ребра (исток). */
+    private static final int EDGE_START = -1;
+    /** Значение для конца ребра (сток). */
+    private static final int EDGE_END = 1;
+    /** Значение для петли. */
+    private static final int LOOP = 2;
+
     private final List<Vertex> vertices = new ArrayList<>();
     private final List<List<Integer>> matrix = new ArrayList<>();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(Vertex vertex) {
         if (vertices.contains(vertex)) {
@@ -17,10 +32,7 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         }
         vertices.add(vertex);
 
-        // Узнаем текущее количество ребер (столбцов)
         int edgeCount = matrix.isEmpty() ? 0 : matrix.get(0).size();
-
-        // Создаем новую строку нулей (для новой вершины)
         List<Integer> newRow = new ArrayList<>();
         for (int i = 0; i < edgeCount; i++) {
             newRow.add(0);
@@ -29,6 +41,9 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(Vertex vertex) {
         int index = vertices.indexOf(vertex);
@@ -36,7 +51,6 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
             return false;
         }
 
-        // Удаляем все ребра (столбцы), связанные с этой вершиной
         for (int column = matrix.get(index).size() - 1; column >= 0; column--) {
             if (matrix.get(index).get(column) != 0) {
                 removeColumn(column);
@@ -48,6 +62,9 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -58,6 +75,9 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         return findColumn(source, target) >= 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageAddEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -65,19 +85,20 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
 
         for (int row = 0; row < matrix.size(); row++) {
             int value = 0;
-
             if (source == target && row == source) {
-                value = 2; // Петля
+                value = LOOP;
             } else if (row == source) {
-                value = -1; // Начало ребра
+                value = EDGE_START;
             } else if (row == target) {
-                value = 1; // Конец ребра
+                value = EDGE_END;
             }
-
             matrix.get(row).add(value);
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageRemoveEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -88,11 +109,17 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getVertices() {
         return new ArrayList<>(vertices);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getNeighbors(Vertex vertex) {
         int source = vertices.indexOf(vertex);
@@ -101,14 +128,11 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
         }
 
         List<Vertex> neighbors = new ArrayList<>();
-        // Проходим по всем столбцам (ребрам)
         for (int column = 0; column < matrix.get(source).size(); column++) {
-            // Если в строке нашей вершины -1, значит ребро исходит из неё
-            if (matrix.get(source).get(column) == -1) {
-                // Ищем, где в этом столбце стоит 1 (или 2 для петли) — это конец ребра
+            if (matrix.get(source).get(column) == EDGE_START) {
                 for (int row = 0; row < matrix.size(); row++) {
                     int val = matrix.get(row).get(column);
-                    if (val == 1 || (val == 2 && row == source)) {
+                    if (val == EDGE_END || (val == LOOP && row == source)) {
                         neighbors.add(vertices.get(row));
                         break;
                     }
@@ -120,12 +144,12 @@ public final class IncidenceMatrixGraph extends AbstractGraph {
 
     private int findColumn(int source, int target) {
         for (int column = 0; column < matrix.get(source).size(); column++) {
-            if (source == target && matrix.get(source).get(column) == 2) {
+            if (source == target && matrix.get(source).get(column) == LOOP) {
                 return column;
             }
             if (source != target
-                    && matrix.get(source).get(column) == -1
-                    && matrix.get(target).get(column) == 1) {
+                    && matrix.get(source).get(column) == EDGE_START
+                    && matrix.get(target).get(column) == EDGE_END) {
                 return column;
             }
         }

@@ -2,24 +2,34 @@ package ru.nsu.wits.treelab.representation;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import ru.nsu.wits.treelab.graph.AbstractGraph;
 import ru.nsu.wits.treelab.graph.Vertex;
 
-/** Each row contains the indices of outgoing neighbors. */
+/**
+ * Реализация ориентированного графа на основе списка смежности.
+ * Каждая строка внутреннего списка содержит индексы исходящих соседей.
+ */
 public final class AdjacencyListGraph extends AbstractGraph {
     private final List<Vertex> vertices = new ArrayList<>();
-    private final List<List<Integer>> lists = new ArrayList<>();
+    private final List<List<Integer>> adjacencyList = new ArrayList<>();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(Vertex vertex) {
         if (vertices.contains(vertex)) {
             return false;
         }
         vertices.add(vertex);
-        lists.add(new ArrayList<>());
+        adjacencyList.add(new ArrayList<>());
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(Vertex vertex) {
         int index = vertices.indexOf(vertex);
@@ -28,9 +38,9 @@ public final class AdjacencyListGraph extends AbstractGraph {
         }
 
         vertices.remove(index);
-        lists.remove(index);
+        adjacencyList.remove(index);
 
-        for (List<Integer> neighbors : lists) {
+        for (List<Integer> neighbors : adjacencyList) {
             neighbors.remove(Integer.valueOf(index));
             for (int i = 0; i < neighbors.size(); i++) {
                 int target = neighbors.get(i);
@@ -42,6 +52,9 @@ public final class AdjacencyListGraph extends AbstractGraph {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
@@ -49,28 +62,40 @@ public final class AdjacencyListGraph extends AbstractGraph {
         if (source < 0 || target < 0) {
             return false;
         }
-        return lists.get(source).contains(target);
+        return adjacencyList.get(source).contains(target);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageAddEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
         int target = vertices.indexOf(to);
-        lists.get(source).add(target);
+        adjacencyList.get(source).add(target);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void storageRemoveEdge(Vertex from, Vertex to) {
         int source = vertices.indexOf(from);
         int target = vertices.indexOf(to);
-        lists.get(source).remove(Integer.valueOf(target));
+        adjacencyList.get(source).remove(Integer.valueOf(target));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getVertices() {
         return new ArrayList<>(vertices);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vertex> getNeighbors(Vertex vertex) {
         int source = vertices.indexOf(vertex);
@@ -79,7 +104,7 @@ public final class AdjacencyListGraph extends AbstractGraph {
         }
 
         List<Vertex> neighbors = new ArrayList<>();
-        for (int target : lists.get(source)) {
+        for (int target : adjacencyList.get(source)) {
             neighbors.add(vertices.get(target));
         }
         return neighbors;

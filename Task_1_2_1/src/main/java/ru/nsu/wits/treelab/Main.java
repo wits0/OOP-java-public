@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 import ru.nsu.wits.treelab.graph.Graph;
 import ru.nsu.wits.treelab.iostuff.GraphConsole;
 import ru.nsu.wits.treelab.iostuff.GraphFileLoader;
@@ -14,13 +15,24 @@ import ru.nsu.wits.treelab.representation.AdjacencyListGraph;
 import ru.nsu.wits.treelab.representation.AdjacencyMatrixGraph;
 import ru.nsu.wits.treelab.representation.IncidenceMatrixGraph;
 
-/** Application entry point. Accepts an optional path to a graph file. */
+/**
+ * Точка входа в приложение.
+ * Загружает граф из файла и выводит результаты работы алгоритмов.
+ */
 public final class Main {
     private static final String DEFAULT_RESOURCE = "/graph.txt";
 
+    /** Приватный конструктор для предотвращения создания экземпляров утилитного класса. */
     private Main() {
     }
 
+    /**
+     * Основной метод программы.
+     *
+     * @param args аргументы командной строки. Если передан путь к файлу,
+     *             граф загружается из него. В противном случае используется
+     *             ресурс по умолчанию.
+     */
     public static void main(String[] args) {
         try {
             List<Graph> graphs = createGraphs();

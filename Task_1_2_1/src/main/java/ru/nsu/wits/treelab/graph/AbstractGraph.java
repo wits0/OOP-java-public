@@ -3,9 +3,22 @@ package ru.nsu.wits.treelab.graph;
 import java.util.List;
 import java.util.Objects;
 
-/** Common public behavior; subclasses implement only their storage operations. */
+/**
+ * Базовый абстрактный класс для всех реализаций графа.
+ * Содержит общую логику добавления/удаления ребер и переопределения
+ * методов {@link Object}. Наследники реализуют только операции хранения.
+ */
 public abstract class AbstractGraph implements Graph {
 
+    /**
+     * Добавляет ориентированное ребро между двумя вершинами.
+     *
+     * @param from вершина-исток.
+     * @param to   вершина-сток.
+     * @return {@code true}, если ребро было добавлено, {@code false},
+     *         если такое ребро уже существует.
+     * @throws IllegalArgumentException если одна из вершин не существует в графе.
+     */
     @Override
     public final boolean addEdge(Vertex from, Vertex to) {
         checkVertexExists(from);
@@ -17,6 +30,15 @@ public abstract class AbstractGraph implements Graph {
         return true;
     }
 
+    /**
+     * Удаляет ориентированное ребро между двумя вершинами.
+     *
+     * @param from вершина-исток.
+     * @param to   вершина-сток.
+     * @return {@code true}, если ребро было удалено, {@code false},
+     *         если такого ребра не существует.
+     * @throws IllegalArgumentException если одна из вершин не существует в графе.
+     */
     @Override
     public final boolean removeEdge(Vertex from, Vertex to) {
         checkVertexExists(from);
@@ -28,6 +50,14 @@ public abstract class AbstractGraph implements Graph {
         return true;
     }
 
+    /**
+     * Сравнивает текущий граф с другим объектом.
+     * Графы считаются равными, если у них одинаковый набор вершин
+     * и одинаковый набор ребер.
+     *
+     * @param object объект для сравнения.
+     * @return {@code true}, если объекты равны, иначе {@code false}.
+     */
     @Override
     public final boolean equals(Object object) {
         if (this == object) {
@@ -53,6 +83,11 @@ public abstract class AbstractGraph implements Graph {
         return true;
     }
 
+    /**
+     * Возвращает хеш-код графа, основанный на хеш-кодах вершин и их связей.
+     *
+     * @return хеш-код графа.
+     */
     @Override
     public final int hashCode() {
         int hash = 0;
@@ -65,6 +100,11 @@ public abstract class AbstractGraph implements Graph {
         return hash;
     }
 
+    /**
+     * Возвращает строковое представление графа в виде списков смежности.
+     *
+     * @return строковое представление графа.
+     */
     @Override
     public final String toString() {
         StringBuilder result = new StringBuilder();
@@ -75,12 +115,28 @@ public abstract class AbstractGraph implements Graph {
         return result.toString();
     }
 
-    // Абстрактные методы, которые должны реализовать наследники
+    /**
+     * Внутренний метод для добавления ребра в конкретную структуру данных наследника.
+     *
+     * @param from вершина-исток.
+     * @param to   вершина-сток.
+     */
     protected abstract void storageAddEdge(Vertex from, Vertex to);
 
+    /**
+     * Внутренний метод для удаления ребра из конкретной структуры данных наследника.
+     *
+     * @param from вершина-исток.
+     * @param to   вершина-сток.
+     */
     protected abstract void storageRemoveEdge(Vertex from, Vertex to);
 
-    // Приватный хелпер для проверки вершин
+    /**
+     * Проверяет, существует ли указанная вершина в графе.
+     *
+     * @param vertex вершина для проверки.
+     * @throws IllegalArgumentException если вершина не найдена в графе.
+     */
     private void checkVertexExists(Vertex vertex) {
         Objects.requireNonNull(vertex, "vertex");
         if (!getVertices().contains(vertex)) {
