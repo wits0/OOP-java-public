@@ -1,11 +1,10 @@
-package ru.nsu.wits.treelab.interfacegraph;
+package ru.nsu.wits.treelab.graph;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.List;
 import ru.nsu.wits.treelab.iostuff.GraphFileLoader;
 
-/** Directed graph without parallel edges. */
 public interface Graph {
     boolean addVertex(Vertex vertex);
 
@@ -17,9 +16,9 @@ public interface Graph {
 
     boolean hasEdge(Vertex from, Vertex to);
 
-    ArrayList<Vertex> getVertices();
+    List<Vertex> getVertices();
 
-    ArrayList<Vertex> getNeighbors(Vertex vertex);
+    List<Vertex> getNeighbors(Vertex vertex);
 
     default void readFromFile(Path path) throws IOException {
         GraphFileLoader.load(this, path);

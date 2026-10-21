@@ -1,10 +1,10 @@
 package ru.nsu.wits.treelab.iostuff;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import ru.nsu.wits.treelab.interfacegraph.Graph;
-import ru.nsu.wits.treelab.interfacegraph.Vertex;
+import ru.nsu.wits.treelab.graph.Graph;
+import ru.nsu.wits.treelab.graph.Vertex;
 
 /** Presentation of the sample run. */
 public final class GraphConsole {
@@ -14,7 +14,7 @@ public final class GraphConsole {
         this.output = Objects.requireNonNull(output, "output");
     }
 
-    public void show(String title, Graph graph, ArrayList<Vertex> order) {
+    public void show(String title, Graph graph, List<Vertex> order) {
         output.println(title);
         output.print(graph);
         output.println("Topological order: " + order);

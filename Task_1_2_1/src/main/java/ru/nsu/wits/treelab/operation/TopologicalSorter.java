@@ -1,10 +1,9 @@
 package ru.nsu.wits.treelab.operation;
 
-import java.util.ArrayList;
-import ru.nsu.wits.treelab.interfacegraph.Graph;
-import ru.nsu.wits.treelab.interfacegraph.Vertex;
+import java.util.List;
+import ru.nsu.wits.treelab.graph.Graph;
+import ru.nsu.wits.treelab.graph.Vertex;
 
-/** A strategy for ordering the vertices of a directed acyclic graph. */
 public interface TopologicalSorter {
-    ArrayList<Vertex> sort(Graph graph);
+    List<Vertex> sort(Graph graph);
 }

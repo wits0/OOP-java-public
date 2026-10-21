@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import ru.nsu.wits.treelab.interfacegraph.Graph;
+import java.util.List;
+import ru.nsu.wits.treelab.graph.Graph;
 import ru.nsu.wits.treelab.iostuff.GraphConsole;
 import ru.nsu.wits.treelab.iostuff.GraphFileLoader;
 import ru.nsu.wits.treelab.operation.KahnTopologicalSorter;
@@ -22,7 +23,7 @@ public final class Main {
 
     public static void main(String[] args) {
         try {
-            ArrayList<Graph> graphs = createGraphs();
+            List<Graph> graphs = createGraphs();
             for (Graph graph : graphs) {
                 loadGraph(graph, args);
             }
@@ -32,8 +33,8 @@ public final class Main {
         }
     }
 
-    private static ArrayList<Graph> createGraphs() {
-        ArrayList<Graph> graphs = new ArrayList<>();
+    private static List<Graph> createGraphs() {
+        List<Graph> graphs = new ArrayList<>();
         graphs.add(new AdjacencyMatrixGraph());
         graphs.add(new IncidenceMatrixGraph());
         graphs.add(new AdjacencyListGraph());
@@ -54,7 +55,7 @@ public final class Main {
         }
     }
 
-    private static void displayResults(ArrayList<Graph> graphs) {
+    private static void displayResults(List<Graph> graphs) {
         GraphConsole console = new GraphConsole(System.out);
         TopologicalSorter sorter = new KahnTopologicalSorter();
         for (Graph graph : graphs) {

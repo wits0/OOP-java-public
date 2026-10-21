@@ -1,44 +1,104 @@
 package ru.nsu.wits.treelab.representation;
 
 import java.util.ArrayList;
-import ru.nsu.wits.treelab.interfacegraph.AbstractGraph;
+import java.util.List;
+import ru.nsu.wits.treelab.graph.AbstractGraph;
+import ru.nsu.wits.treelab.graph.Vertex;
 
 /** A directed edge is stored at matrix[source][target]. */
 public final class AdjacencyMatrixGraph extends AbstractGraph {
-    private final ArrayList<ArrayList<Boolean>> matrix = new ArrayList<>();
+    private final List<Vertex> vertices = new ArrayList<>();
+    private final List<List<Boolean>> matrix = new ArrayList<>();
 
     @Override
-    protected void storageAddVertex() {
-        for (ArrayList<Boolean> row : matrix) {
+    public boolean addVertex(Vertex vertex) {
+        if (vertices.contains(vertex)) {
+            return false;
+        }
+
+        // 1. Добавляем вершину в общий список
+        vertices.add(vertex);
+
+        // 2. Добавляем новый столбец (false) во все существующие строки
+        for (List<Boolean> row : matrix) {
             row.add(false);
         }
-        ArrayList<Boolean> row = new ArrayList<>();
-        for (int i = 0; i <= matrix.size(); i++) {
-            row.add(false);
+
+        // 3. Создаем новую строку, заполненную false (размер = количеству вершин)
+        List<Boolean> newRow = new ArrayList<>();
+        for (int i = 0; i < vertices.size(); i++) {
+            newRow.add(false);
         }
-        matrix.add(row);
+        matrix.add(newRow);
+
+        return true;
     }
 
     @Override
-    protected void storageRemoveVertex(int index) {
+    public boolean removeVertex(Vertex vertex) {
+        int index = vertices.indexOf(vertex);
+        if (index < 0) {
+            return false;
+        }
+
+        // 1. Удаляем из списка вершин
+        vertices.remove(index);
+
+        // 2. Удаляем строку из матрицы
         matrix.remove(index);
-        for (ArrayList<Boolean> row : matrix) {
+
+        // 3. Удаляем столбец из всех оставшихся строк
+        for (List<Boolean> row : matrix) {
             row.remove(index);
         }
+
+        return true;
     }
 
     @Override
-    protected void storageAddEdge(int source, int target) {
+    public boolean hasEdge(Vertex from, Vertex to) {
+        int source = vertices.indexOf(from);
+        int target = vertices.indexOf(to);
+        // Если вершины нет в графе, то и ребра нет
+        if (source < 0 || target < 0) {
+            return false;
+        }
+        return matrix.get(source).get(target);
+    }
+
+    @Override
+    protected void storageAddEdge(Vertex from, Vertex to) {
+        int source = vertices.indexOf(from);
+        int target = vertices.indexOf(to);
         matrix.get(source).set(target, true);
     }
 
     @Override
-    protected void storageRemoveEdge(int source, int target) {
+    protected void storageRemoveEdge(Vertex from, Vertex to) {
+        int source = vertices.indexOf(from);
+        int target = vertices.indexOf(to);
         matrix.get(source).set(target, false);
     }
 
     @Override
-    protected boolean storageHasEdge(int source, int target) {
-        return matrix.get(source).get(target);
+    public List<Vertex> getVertices() {
+        // Возвращаем копию, чтобы внешний код не мог испортить внутреннее состояние
+        return new ArrayList<>(vertices);
+    }
+
+    @Override
+    public List<Vertex> getNeighbors(Vertex vertex) {
+        int source = vertices.indexOf(vertex);
+        if (source < 0) {
+            throw new IllegalArgumentException("Unknown vertex: " + vertex);
+        }
+
+        List<Vertex> neighbors = new ArrayList<>();
+        for (int target = 0; target < vertices.size(); target++) {
+            if (matrix.get(source).get(target)) {
+                neighbors.add(vertices.get(target));
+            }
+        }
+        return neighbors;
     }
 }

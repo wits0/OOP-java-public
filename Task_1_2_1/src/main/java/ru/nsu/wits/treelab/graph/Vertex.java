@@ -1,4 +1,4 @@
-package ru.nsu.wits.treelab.interfacegraph;
+package ru.nsu.wits.treelab.graph;
 
 import java.util.Objects;
 
