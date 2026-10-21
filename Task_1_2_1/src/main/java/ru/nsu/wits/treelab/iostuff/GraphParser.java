@@ -5,29 +5,39 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import ru.nsu.wits.treelab.graph.Graph;
 import ru.nsu.wits.treelab.graph.Vertex;
 
-/** Parses graph data from a buffered reader. */
+/**
+ * Парсер данных графа из буферизованного потока чтения.
+ */
 final class GraphParser {
 
     private GraphParser() {
     }
 
+    /**
+     * Читает данные графа и заполняет переданный объект.
+     *
+     * @param graph  граф для заполнения.
+     * @param reader буферизованный поток чтения.
+     * @throws IOException если данные некорректны или произошла ошибка чтения.
+     */
     static void parse(Graph graph, BufferedReader reader) throws IOException {
         if (!graph.getVertices().isEmpty()) {
             throw new IllegalArgumentException("Load into an empty graph");
         }
 
         List<Vertex> vertices = readVertices(reader);
-        List<Vertex[]> edges = readEdges(reader, vertices);
+        // Теперь edges — это список списков (каждый внутренний список - пара [from, to])
+        List<List<Vertex>> edges = readEdges(reader, vertices);
 
-        // Заполняем граф только после успешного парсинга
         for (Vertex vertex : vertices) {
             graph.addVertex(vertex);
         }
-        for (Vertex[] edge : edges) {
-            graph.addEdge(edge[0], edge[1]);
+        for (List<Vertex> edge : edges) {
+            graph.addEdge(edge.get(0), edge.get(1));
         }
     }
 
@@ -54,10 +64,10 @@ final class GraphParser {
         return vertices;
     }
 
-    private static List<Vertex[]> readEdges(BufferedReader reader, List<Vertex> vertices)
+    private static List<List<Vertex>> readEdges(BufferedReader reader, List<Vertex> vertices)
             throws IOException {
         int edgeCount = readCount(reader, "EDGES");
-        List<Vertex[]> edges = new ArrayList<>();
+        List<List<Vertex>> edges = new ArrayList<>();
 
         for (int i = 0; i < edgeCount; i++) {
             List<String> pair = tokens(requireLine(reader, "edge"));
@@ -76,12 +86,16 @@ final class GraphParser {
                 throw new IOException("Edge references unknown vertex: " + pair);
             }
 
-            for (Vertex[] existingEdge : edges) {
-                if (existingEdge[0].equals(source) && existingEdge[1].equals(target)) {
+            for (List<Vertex> existingEdge : edges) {
+                if (existingEdge.get(0).equals(source) && existingEdge.get(1).equals(target)) {
                     throw new IOException("Duplicate edge: " + source + " -> " + target);
                 }
             }
-            edges.add(new Vertex[]{source, target});
+
+            List<Vertex> edge = new ArrayList<>();
+            edge.add(source);
+            edge.add(target);
+            edges.add(edge);
         }
 
         if (nextLine(reader) != null) {
