@@ -54,7 +54,8 @@ final class GraphParser {
         return vertices;
     }
 
-    private static List<Vertex[]> readEdges(BufferedReader reader, List<Vertex> vertices) throws IOException {
+    private static List<Vertex[]> readEdges(BufferedReader reader, List<Vertex> vertices)
+            throws IOException {
         int edgeCount = readCount(reader, "EDGES");
         List<Vertex[]> edges = new ArrayList<>();
 

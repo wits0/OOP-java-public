@@ -70,13 +70,15 @@ public abstract class AbstractGraph implements Graph {
         List<Vertex> thisVertices = getVertices();
         List<Vertex> otherVertices = other.getVertices();
 
-        if (thisVertices.size() != otherVertices.size() || !thisVertices.containsAll(otherVertices)) {
+        if (thisVertices.size() != otherVertices.size()
+                || !thisVertices.containsAll(otherVertices)) {
             return false;
         }
         for (Vertex vertex : thisVertices) {
             List<Vertex> neighbors = getNeighbors(vertex);
             List<Vertex> otherNeighbors = other.getNeighbors(vertex);
-            if (neighbors.size() != otherNeighbors.size() || !neighbors.containsAll(otherNeighbors)) {
+            if (neighbors.size() != otherNeighbors.size()
+                    || !neighbors.containsAll(otherNeighbors)) {
                 return false;
             }
         }

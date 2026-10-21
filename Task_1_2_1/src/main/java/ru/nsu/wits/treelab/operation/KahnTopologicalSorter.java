@@ -24,7 +24,6 @@ public final class KahnTopologicalSorter implements TopologicalSorter {
 
         List<Vertex> vertices = graph.getVertices();
         List<Integer> incomingEdgesCount = new ArrayList<>();
-        List<Vertex> result = new ArrayList<>();
         Queue<Vertex> verticesWithZeroIncomingEdges = new ArrayDeque<>();
 
         // Инициализация степеней нулями
@@ -46,7 +45,7 @@ public final class KahnTopologicalSorter implements TopologicalSorter {
                 verticesWithZeroIncomingEdges.add(vertices.get(i));
             }
         }
-
+        List<Vertex> result = new ArrayList<>();
         // Основной цикл
         while (!verticesWithZeroIncomingEdges.isEmpty()) {
             Vertex current = verticesWithZeroIncomingEdges.poll(); // Извлекаем из начала очереди

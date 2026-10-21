@@ -3,7 +3,6 @@ package ru.nsu.wits.treelab.graph;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
-
 import ru.nsu.wits.treelab.iostuff.GraphFileLoader;
 
 /**

@@ -2,7 +2,6 @@ package ru.nsu.wits.treelab.representation;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import ru.nsu.wits.treelab.graph.AbstractGraph;
 import ru.nsu.wits.treelab.graph.Vertex;
 

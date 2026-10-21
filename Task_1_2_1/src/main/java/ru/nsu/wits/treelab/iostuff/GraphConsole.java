@@ -3,7 +3,6 @@ package ru.nsu.wits.treelab.iostuff;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Objects;
-
 import ru.nsu.wits.treelab.graph.Graph;
 import ru.nsu.wits.treelab.graph.Vertex;
 
