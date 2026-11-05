@@ -6,8 +6,9 @@ import java.util.Objects;
  * Представляет собой вершину графа.
  * Вершина идентифицируется своим уникальным непустым именем.
  */
-public final class Vertex {
-    private final String name;
+public final class Vertex<T> {
+
+    private final T name;
 
     /**
      * Создает новую вершину с заданным именем.

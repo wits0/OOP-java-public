@@ -1,16 +1,15 @@
-VERTICES 7
+VERTICES 6
 A
 B
 C
 D
 E
 F
-G
-EDGES 7
+EDGES 6
 A B
 A C
 B D
 C D
 D E
 E F
-A A
+
